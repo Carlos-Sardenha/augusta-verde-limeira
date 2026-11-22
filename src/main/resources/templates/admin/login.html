@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Entrar · Augusta Verde</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body class="pagina-admin">
+<main class="cartao">
+    <h1>Área do admin</h1>
+
+    <p class="alerta alerta-erro" th:if="${param.erro}">E-mail ou senha incorretos.</p>
+
+    <form th:action="@{/admin/login}" method="post">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="username" required autofocus>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+
+        <button type="submit" class="botao">Entrar</button>
+    </form>
+
+    <a class="voltar" th:href="@{/}">Voltar ao site</a>
+</main>
+</body>
+</html>

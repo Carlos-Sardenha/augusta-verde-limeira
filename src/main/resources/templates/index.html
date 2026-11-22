@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Augusta Verde Limeira</title>
+    <meta name="description" content="Grupo de moradores que planta árvores na região do Morro Branco, em Limeira.">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+
+<header class="topo">
+    <span class="marca">Augusta Verde</span>
+    <nav>
+        <a href="#beneficios">Por que árvores</a>
+        <a href="#resultados">O que já fizemos</a>
+        <a href="#participe" class="botao botao-pequeno">Participe</a>
+    </nav>
+</header>
+
+<main>
+    <section id="apresentacao" class="secao secao-destaque">
+        <div class="conteudo">
+            <p class="sobretitulo">Limeira, SP</p>
+            <h1>Olá, nós plantamos árvores na região do Morro Branco.</h1>
+            <p class="lead">
+                Somos um grupo de vizinhos que decidiu deixar o bairro mais verde com as próprias mãos.
+                A gente escolhe os pontos, planta mudas e cuida delas até ficarem de pé sozinhas.
+            </p>
+            <a href="#participe" class="botao">Quero plantar junto</a>
+        </div>
+    </section>
+
+    <section id="beneficios" class="secao">
+        <div class="conteudo">
+            <h2>Você sabia?</h2>
+            <p class="lead">Uma árvore na calçada faz muito mais do que enfeitar a rua.</p>
+
+            <ul class="fatos">
+                <li>
+                    <strong>Esfriam a cidade.</strong>
+                    Árvores bem posicionadas podem baixar a temperatura do ar entre 2 °C e 8 °C.
+                    <a class="fonte" href="https://www.fao.org/newsroom/story/Urban-trees-more-than-just-a-pretty-face/en"
+                       target="_blank" rel="noopener">Fonte: FAO/ONU</a>
+                </li>
+                <li>
+                    <strong>Áreas arborizadas são mais frescas.</strong>
+                    Uma revisão de 308 estudos encontrou florestas urbanas, em média, 1,6 °C mais frescas que áreas
+                    urbanas sem verde.
+                    <a class="fonte" href="https://www.epa.gov/heatislands/benefits-trees-and-vegetation"
+                       target="_blank" rel="noopener">Fonte: EPA (EUA)</a>
+                </li>
+                <li>
+                    <strong>Cada pedaço de copa conta.</strong>
+                    A cada 10% a mais de cobertura de árvores, a temperatura do ar cai cerca de 0,3 °C.
+                    <a class="fonte" href="https://www.wri.org/insights/urban-trees-cooling-potential"
+                       target="_blank" rel="noopener">Fonte: WRI</a>
+                </li>
+                <li>
+                    <strong>Tiram carbono do ar.</strong>
+                    Uma árvore nativa da Mata Atlântica absorve em média 163 kg de CO₂ nos primeiros 20 anos.
+                    <a class="fonte"
+                       href="https://www.esalq.usp.br/acom/clipping_semanal/2013/3marco/23_a_29/files/assets/downloads/page0013.pdf"
+                       target="_blank" rel="noopener">Fonte: ESALQ/USP, Instituto Totum e SOS Mata Atlântica</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resultados" class="secao secao-alternada">
+        <div class="conteudo">
+            <h2>O que já atingimos</h2>
+
+            <div class="indicadores">
+                <div class="indicador">
+                    <span class="numero" id="total-arvores"
+                          th:text="${#numbers.formatInteger(arvores, 1, 'POINT')}">0</span>
+                    <span class="rotulo">árvores plantadas</span>
+                </div>
+                <div class="indicador">
+                    <span class="numero" id="co2-20-anos"
+                          th:text="${#numbers.formatDecimal(impacto.toneladasEm20Anos, 1, 'POINT', 1, 'COMMA')}">0</span>
+                    <span class="rotulo">toneladas de CO₂ retiradas do ar em 20 anos</span>
+                </div>
+                <div class="indicador">
+                    <span class="numero" id="co2-por-ano"
+                          th:text="${#numbers.formatDecimal(impacto.kgPorAno, 1, 'POINT', 0, 'COMMA')}">0</span>
+                    <span class="rotulo">kg de CO₂ por ano, em média</span>
+                </div>
+            </div>
+
+            <p class="nota">
+                Como calculamos: cada árvore nativa da Mata Atlântica absorve em média
+                <span th:text="${#numbers.formatDecimal(kgPorArvore, 1, 'POINT', 2, 'COMMA')}">163,14</span> kg de
+                CO₂ nos primeiros 20 anos (estudo de 2013 do Instituto Totum com a ESALQ/USP e a Fundação SOS Mata
+                Atlântica, feito em plantios de restauração). É uma estimativa: o valor real varia com a espécie, o solo
+                e o cuidado com cada muda.
+            </p>
+        </div>
+    </section>
+
+    <section id="participe" class="secao secao-destaque">
+        <div class="conteudo">
+            <h2>Vem plantar com a gente</h2>
+            <p class="lead">
+                Não precisa entender de plantas nem ter ferramenta. Entre no nosso grupo do WhatsApp para saber
+                dos próximos plantios e ajudar do jeito que puder.
+            </p>
+            <a class="botao" id="link-whatsapp" href="https://chat.whatsapp.com/GnUGIHcwc33FY6ubSVK7zw"
+               target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a>
+        </div>
+    </section>
+</main>
+
+<footer class="rodape">
+    <p>Augusta Verde Limeira · Morro Branco, Limeira, SP</p>
+</footer>
+
+</body>
+</html>

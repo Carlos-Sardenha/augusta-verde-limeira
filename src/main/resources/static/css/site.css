@@ -1,0 +1,169 @@
+:root {
+    --verde-escuro: #1f4d2b;
+    --verde: #2f7d43;
+    --verde-claro: #e8f3ea;
+    --terra: #f6f1e7;
+    --texto: #1d2a21;
+    --texto-suave: #4f5d53;
+    --erro: #a4302a;
+    --raio: 12px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--texto);
+    background: #fff;
+}
+
+a { color: var(--verde); }
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #e3e8e4;
+}
+
+.marca { font-weight: 700; color: var(--verde-escuro); }
+
+.topo nav { display: flex; align-items: center; gap: 20px; }
+.topo nav a { text-decoration: none; color: var(--texto-suave); font-size: 16px; }
+
+.secao { padding: 88px 24px; }
+.secao-destaque { background: var(--verde-claro); }
+.secao-alternada { background: var(--terra); }
+
+.conteudo { max-width: 760px; margin: 0 auto; }
+
+h1, h2 { line-height: 1.2; color: var(--verde-escuro); }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 24px; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 16px; }
+
+.sobretitulo {
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+    color: var(--verde);
+}
+
+.lead { font-size: 1.15rem; color: var(--texto-suave); margin: 0 0 32px; }
+
+.botao {
+    display: inline-block;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 999px;
+    background: var(--verde);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+.botao:hover { background: var(--verde-escuro); }
+.topo nav .botao-pequeno { padding: 8px 18px; color: #fff; }
+
+.fatos { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+.fatos li {
+    padding: 20px 24px;
+    border-left: 4px solid var(--verde);
+    background: #fafcfa;
+    border-radius: 0 var(--raio) var(--raio) 0;
+}
+.fatos strong { display: block; color: var(--verde-escuro); }
+.fonte { display: block; margin-top: 6px; font-size: 14px; }
+
+.indicadores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+}
+.indicador {
+    padding: 24px;
+    background: #fff;
+    border-radius: var(--raio);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.numero {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--verde);
+    font-variant-numeric: tabular-nums;
+}
+.rotulo { color: var(--texto-suave); font-size: 16px; }
+.nota { font-size: 15px; color: var(--texto-suave); }
+
+.rodape {
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    background: var(--verde-escuro);
+}
+
+/* Área do admin */
+.pagina-admin {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--verde-claro);
+}
+.cartao {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    background: #fff;
+    border-radius: var(--raio);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.cartao h1 { font-size: 1.6rem; }
+.cartao label { display: block; margin: 16px 0 6px; font-weight: 600; }
+.cartao input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c8d3cb;
+    border-radius: 8px;
+    font: inherit;
+}
+.cartao .botao { width: 100%; margin-top: 24px; }
+.alerta { padding: 10px 14px; border-radius: 8px; font-size: 16px; }
+.alerta-erro { color: var(--erro); background: #fbeceb; }
+.alerta-ok { color: var(--verde-escuro); background: var(--verde-claro); }
+.acoes { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.acoes form { margin: 0; }
+.voltar { display: inline-block; margin-top: 20px; font-size: 16px; }
+.acoes .voltar { margin-top: 0; }
+.link {
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+    font-size: 16px;
+    color: var(--verde);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    body { font-size: 17px; }
+    .secao { padding: 64px 16px; }
+    .topo { padding: 10px 16px; }
+    .topo nav a:not(.botao) { display: none; }
+}

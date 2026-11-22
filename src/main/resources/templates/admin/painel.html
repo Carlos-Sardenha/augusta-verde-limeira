@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Admin · Augusta Verde</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body class="pagina-admin">
+<main class="cartao">
+    <h1>Árvores plantadas</h1>
+
+    <p class="alerta alerta-ok" th:if="${param.salvo}">Número atualizado. O site já mostra o valor novo.</p>
+
+    <form th:action="@{/admin/arvores}" th:object="${form}" method="post">
+        <label for="quantidade">Quantas árvores o grupo já plantou?</label>
+        <input type="number" id="quantidade" th:field="*{quantidade}" min="0" step="1" required>
+        <p class="alerta alerta-erro" th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}">erro</p>
+
+        <button type="submit" class="botao">Salvar</button>
+    </form>
+
+    <div class="acoes">
+        <a class="voltar" th:href="@{/}">Ver o site</a>
+        <form th:action="@{/admin/logout}" method="post">
+            <button type="submit" class="link">Sair</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
